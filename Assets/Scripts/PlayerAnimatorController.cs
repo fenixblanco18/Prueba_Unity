@@ -14,6 +14,6 @@ public class PlayerAnimatorController : MonoBehaviour
 
     void Update()
     {
-        animator.SetFloat("Velocity",characterController.velocity.magnitude);
+        animator.SetFloat("Velocity", characterController.velocity.magnitude);
     }
 }
