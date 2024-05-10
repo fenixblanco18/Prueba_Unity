@@ -629,9 +629,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 753619095}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44794d26d481b444a8495da7ca32d638, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fcad78c6f86cef429efef9e52a8a5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyCodeUP: 0
+  keyCodeDOWN: 0
+  speed: 0
+  delta: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
