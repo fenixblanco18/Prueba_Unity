@@ -6,7 +6,7 @@ using UnityEngine;
 public class Arma : MonoBehaviour
 {
     public int capacidad = 100;
-    public int municion = 0; 
+    public int municion = 0;
     public float fuerza = 10;
     public GameObject prefabBala;
     public Transform transformSpawner;
@@ -15,7 +15,10 @@ public class Arma : MonoBehaviour
 
     public AudioClip audioFail;
 
-    public void Start(){
+    public AudioClip reload;
+
+    public void Start()
+    {
         municion = capacidad;
     }
 
@@ -25,22 +28,36 @@ public class Arma : MonoBehaviour
         {
             GetComponent<Animator>().SetTrigger("disparar");
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GetComponent<AudioSource>().PlayOneShot(reload);
+            Reload();
+        }
     }
-    public void IntentarDisparo(){
-        if (municion>0){
+    public void IntentarDisparo()
+    {
+        if (municion > 0)
+        {
             Disparar();
-        } else {
+        }
+        else
+        {
             GetComponent<AudioSource>().PlayOneShot(audioFail);
         }
     }
-    private void Disparar(){
+    private void Disparar()
+    {
         GetComponent<AudioSource>().PlayOneShot(audioShoot);
         municion--;
-        GameObject bala = Instantiate(prefabBala,transformSpawner.position, transformSpawner.rotation);
+        GameObject bala = Instantiate(prefabBala, transformSpawner.position, transformSpawner.rotation);
         bala.GetComponent<Rigidbody>().AddForce(bala.transform.forward * fuerza);
     }
 
-    public void Reload(){
+    public void Reload()
+    {
         municion = capacidad;
     }
 }
+//else if (Input.GetKeyDown(KeyCode.R)){
+//GetComponent<AudioSource>().PlayOneShot(audioReload);
+//arma.Reload();
