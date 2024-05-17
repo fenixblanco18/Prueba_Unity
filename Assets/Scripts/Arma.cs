@@ -18,6 +18,14 @@ public class Arma : MonoBehaviour
     public void Start(){
         municion = capacidad;
     }
+
+    void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            IntentarDisparo();
+        }
+    }
     public void IntentarDisparo(){
         if (municion>0){
             Disparar();
