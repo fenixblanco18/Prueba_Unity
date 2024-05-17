@@ -23,7 +23,7 @@ public class Arma : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            IntentarDisparo();
+            GetComponent<Animator>().SetTrigger("disparar");
         }
     }
     public void IntentarDisparo(){
